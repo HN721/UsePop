@@ -12,6 +12,17 @@ export default function App() {
   const [isError,setIsError] = useState('');
   const [query, setQuery] = useState("");
   const [selectedId ,setSelectedId] =useState(null)
+  // useEffect(function(){
+  //   console.log("a")
+  // },[])
+
+  // useEffect(function (){
+  //   console.log("B")
+  // })
+  // useEffect(function(){
+  //   console.log("D")
+  // },[query])
+  // console.log("c")
 
   function handleSelect(id){
     setSelectedId((selectedId) => id=== selectedId ? null : id)
@@ -25,9 +36,6 @@ export default function App() {
   function handleDeleteWatch(id){
     setWatched(watched => watched.filter(movie => movie.imdbID !== id))
   }
- useEffect(function(){
- localStorage.setItem("watched",JSON.stringify(watched))
- },[watched])
   useEffect(function(){
     document.addEventListener('keydown',function(e){
         if(e.code === "Escape"){
@@ -214,7 +222,29 @@ function Main({children}){
        
       </main>
 }
+// function WatchBox(){
+//   
+  
+//   const [isOpen2, setIsOpen2] = useState(true);
 
+  
+//   return  <div className="box">
+//   <button
+//     className="btn-toggle"
+//     onClick={() => setIsOpen2((open) => !open)}
+//   >
+//     {isOpen2 ? "–" : "+"}
+//   </button>
+//   {isOpen2 && (
+//     <>
+//       <WatchSummary watched={watched} />
+//       <WatchList watched={watched}/>
+
+      
+//     </>
+//   )}
+// </div>
+// }
 function WatchList({watched, onDeleteWatched}){
 
   return <ul className="list">
