@@ -40,7 +40,7 @@ export default function App() {
     async function fetchAwait (){
      try{ setIsLoading(true)
       setIsError('')
-     const res = await fetch(`http://www.omdbapi.com/?apikey=b18c38ae&s=${query}`)
+     const res = await fetch(`https://www.omdbapi.com/?apikey=b18c38ae&s=${query}`)
      if(!res.ok) throw new Error("Smotehing")
      
       const data = await res.json();
@@ -134,7 +134,7 @@ export default function App() {
 
       async function getMovieDetails(){
         setLoading(true)
-        const res = await fetch(`http://www.omdbapi.com/?apikey=b18c38ae&i=${selectedId}`)
+        const res = await fetch(`https://www.omdbapi.com/?apikey=b18c38ae&i=${selectedId}`)
         const data = await res.json();
         setMovie(data)
         setLoading(false)
